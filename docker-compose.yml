@@ -11,7 +11,10 @@ services:
       - ${GROCY_CONFIG_FOLDER}:/config
     restart: unless-stopped
     networks:
-      net:
+      external:
+        ipv4_address: ${GROCY_IP_ADDRESS}
 
 networks:
-  net: {}
+  external:
+    external: true
+    name: ${EXTERNAL_NETWORK_NAME}

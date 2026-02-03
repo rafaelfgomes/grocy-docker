@@ -1,4 +1,0 @@
-services:
-  grocy:
-    ports:
-      - ${HTTP_PORT:-9283}:80

@@ -5,7 +5,7 @@ services:
     hostname: grocy
     environment:
       - PUID=${PUID}
-      - PGID=$PUID}
+      - PGID=${PGID}
       - TZ=${TIMEZONE}
     volumes:
       - ${GROCY_CONFIG_FOLDER:-./config}:/config

@@ -7,6 +7,7 @@ services:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TIMEZONE}
+      - GROCY_BASE_URL=${GROCY_BASE_URL}
     volumes:
       - ${GROCY_CONFIG_FOLDER:-./config}:/config
     restart: unless-stopped

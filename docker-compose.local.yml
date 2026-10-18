@@ -1,0 +1,23 @@
+services:
+  grocy:
+    image: lscr.io/linuxserver/grocy
+    container_name: grocy
+    hostname: grocy
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      - TZ=${TIMEZONE:-Etc/UTC}
+      - GROCY_BASE_URL=${GROCY_BASE_URL}
+    volumes:
+      - ${GROCY_CONFIG_FOLDER:-./config}:/config
+    restart: unless-stopped
+    networks:
+      local:
+        ipv4_address: 172.${SUBNET_NUMBER:-20}.0.2
+
+networks:
+  local:
+    name: grocy-local-network
+    ipam:
+      config:
+        - subnet: 172.${SUBNET_NUMBER:-20}.0.0/16
